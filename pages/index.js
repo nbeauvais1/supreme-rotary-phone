@@ -1,36 +1,29 @@
-import {useState, useEffect} from 'react'
-
 import PageTitle from '../components/PageTitle/PageTitle';
-import {Button} from '../components/Button';
-import {User} from '../components/User'
+import ProductCard from '../components/ProductCard/ProductCard';
 
-
-export default function Home() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [userData, setUserData] = useState([])
-
-  useEffect(()=>{  
-    async function loadExternalDataTheCRAWay(){
-      const res = await fetch(`https://jsonplaceholder.typicode.com/users`)
-      const data = await res.json()
-      setUserData(data)
-    }
-    loadExternalDataTheCRAWay()
-  }, [])
+export default function Home(props) {
+const products = props.products
 
   return (
     <>
-      <PageTitle title="GoofyStore" tagline="Goofy featured products"/> 
-      <div style={{textAlign:"center"}}>
-      <Button onClick={()=>setIsLoading(true)} >Get Some Data</Button>
-      {
-        isLoading && <p style={{padding:"1rem"}}>This Is My Output</p>
-      }
-      </div>
+      <PageTitle title="GoofyStore" tagline="Goofy featured products"/>       
       <main>
-        {
-          userData.map(({id, name, email, username}) => <User Key={id} name={name} email={email} username={username}/> )
-        }
+        {products.map(product => <ProductCard key={product.uid} product={product} />)}
       </main>
     </>
   )}
+
+
+export async function getStaticProps(){
+  const res = await fetch('https://storefront-7a623-default-rtdb.firebaseio.com/products.json')
+  const productData = await res.json();
+  const products = Object.values(productData)
+
+  return {
+    props:{
+      products,
+      fallback:false
+    }
+  }
+
+}
