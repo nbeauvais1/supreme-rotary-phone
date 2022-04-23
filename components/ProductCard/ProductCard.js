@@ -7,6 +7,7 @@ function ProductCard ({children, product, ...props})  {
 
   return (
         <aside className={productCard}>
+          <div>
           <header>
             <Image            
               src={imageUrl}
@@ -18,6 +19,7 @@ function ProductCard ({children, product, ...props})  {
           <p className={name}>{productName}</p>
           <p className={price}>${productPrice}</p>
           <p className={description}>{productDesc}</p>
+          </div>
           <footer>
             <form action="/api/checkout" method="POST">
               <input type="hidden" name="uid" value={uid} />

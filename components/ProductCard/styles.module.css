@@ -1,9 +1,12 @@
  .productCard{
     padding: 2rem 1rem;
-    box-shadow: 2px 2px 6px #c2c1c0;
+    box-shadow: -2px -2px 3px #efefef;
     width: fit-content;
-    max-width: 400px;
+    max-width: 300px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
  }
 
 
@@ -12,17 +15,18 @@
  }
 
  .name{
-    font-size: 2.75rem;
+    font-size: 1.75rem;
     font-weight: 600;
     color: #1e293b;
-    margin: .5rem 0;
+    margin: .25rem 0;
  }
 
  .price{
     font-size: 1.75rem;
     font-weight: 200;
     color: #64748b;
-    margin-bottom: 0.25rem 0;
+    margin: 0;
+    margin-bottom: 0.25rem;
 
  }
 
@@ -34,11 +38,11 @@
  .button {
      display: block;
      width: 100%;
-     background-color: #84cc16;
+     background-color: #c4ea8c;
      border: none;
      border-radius: 3px;
      padding: 1rem 2rem;
-     color: #fff;
+     color: #000;
      font-size: 16px;
 
  }

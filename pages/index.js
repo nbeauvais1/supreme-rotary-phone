@@ -5,6 +5,8 @@ import { loadStripe } from "@stripe/stripe-js"
 import PageTitle from '../components/PageTitle/PageTitle';
 import ProductCard from '../components/ProductCard/ProductCard';
 
+import {main} from './styles.module.css'
+
 export default function Home(props) {
 const products = props.products
 
@@ -18,8 +20,8 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Plant Store</title>
       </Head>
-      <PageTitle title="Plant Store" tagline="Grow your plant collection here!"/>       
-      <main>
+      <PageTitle title="Plant Store" tagline="Your collection grows here"/>       
+      <main className={main}>
         {products.map(product => <ProductCard key={product.uid} product={product} />)}
       </main>
     </>
