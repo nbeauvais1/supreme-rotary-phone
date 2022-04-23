@@ -18,7 +18,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Plant Store</title>
       </Head>
-      <PageTitle title="GoofyStore" tagline="Goofy featured products"/>       
+      <PageTitle title="Plant Store" tagline="Grow your plant collection here!"/>       
       <main>
         {products.map(product => <ProductCard key={product.uid} product={product} />)}
       </main>
